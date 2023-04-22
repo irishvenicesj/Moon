@@ -1,227 +1,240 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class GUIframe {
-	
-	private static JLabel userLabel;
-	private static JLabel positionLabel;
-	private static JTextField userText;
-	private static JTextField positionText;
-	private static JButton button;
-	private static JLabel birthdayLabel;
-	private static JTextField birthdayText;
-	private static JLabel sssNumberLabel;
-	private static JTextField sssNumberText;
-	private static JLabel philhealthNumberLabel;
-	private static JTextField philhealthNumberText;
-	private static JLabel pagibigNumberLabel;
-	private static JTextField pagibigNumberText;
-	private static JLabel tinNumberLabel;
-	private static JTextField tinNumberText;
-	private static JLabel profileLabel;
-	private static JLabel timeInLabel;
-	private static JTextField timeInText;
-	private static JLabel timeOutLabel;
-	private static JTextField timeOutText;
-	private static JLabel workingHoursLabel;
-	private static JLabel weeklySalaryLabel;
-	private static JLabel basicSalaryLabel;
-	private static JLabel sssLabel;
-	private static JLabel philhealthLabel;
-	private static JLabel pagibigLabel;
-	private static JLabel tinLabel;
-	private static JLabel taxIncomeLabel;
-	private static JLabel witHoldingTaxLabel;
-	private static JLabel netSalaryLabel;
-	private static JTextField workingHoursText;
-	private static JTextField weeklySalaryText;
-	private static JTextField basicSalaryText;
-	private static JTextField sssText;
-	private static JTextField philhealthText;
-	private static JTextField pagibigText;
-	private static JTextField tinText;
-	private static JTextField taxIncomeText;
-	private static JTextField witHoldingTaxText;
-	private static JTextField netSalaryText;
-	private static JLabel payrollLabel;
+public class SalaryCalculator {
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
-		
-		JPanel panel = new JPanel();
-		   JFrame frame = new JFrame();
-	       frame.setSize(200, 200);
-	       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	       frame.setVisible(true);
-	       frame.add(panel);
-	       
-	       panel.setLayout(null);	
-	       
-	       profileLabel = new JLabel("EMPLOYEE DETAILS");
-	       profileLabel.setBounds(20, 10, 80, 25);
-	       panel.add(profileLabel);
-	       
-	       userLabel = new JLabel("User:");
-	       userLabel.setBounds(120, 40, 80,25);
-	       panel.add(userLabel);
-	       
-	       userText = new JTextField(20);
-	       userText.setBounds(180, 40, 165, 25);
-	       panel.add(userText);
-	       
-	       button = new JButton("Click to Add Photo");
-	       button.setBounds(10, 40, 90, 90);
-	       panel.add(button);
-	       
-	       positionLabel = new JLabel("Position:");
-	       positionLabel.setBounds(120, 80, 80,25);
-	       panel.add(positionLabel);
-	       
-	       positionText = new JTextField(20);
-	       positionText.setBounds(180, 80, 165, 25);
-	       panel.add(positionText);
-	       
-	       birthdayLabel = new JLabel("Birthday:");
-	       birthdayLabel.setBounds(120, 120, 80,25);
-	       panel.add(birthdayLabel);
-	       
-	       birthdayText = new JTextField(20);
-	       birthdayText.setBounds(180, 120, 165, 25);
-	       panel.add(birthdayText);
-	       
-	       sssNumberLabel = new JLabel("sssNumber:");
-	       sssNumberLabel.setBounds(100, 160, 80, 25);
-	       panel.add(sssNumberLabel);
-	       
-	       sssNumberText = new JTextField(20);
-	       sssNumberText.setBounds(180, 160, 165, 25);
-	       panel.add(sssNumberText);
+        JFrame frame = new JFrame("Salary Calculator");
+        frame.setSize(700,700);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
-	       philhealthNumberLabel = new JLabel("philhealthNumber:");
-	       philhealthNumberLabel.setBounds(100, 200, 80, 25);
-	       panel.add(philhealthNumberLabel);
-	       
-	       philhealthNumberText = new JTextField(20);
-	       philhealthNumberText.setBounds(180, 200, 165, 25);
-	       panel.add(philhealthNumberText);
-	       
-	       pagibigNumberLabel = new JLabel("pagibigNumber:");
-	       pagibigNumberLabel.setBounds(100, 240, 80, 25);
-	       panel.add(pagibigNumberLabel);
-	       
-	       pagibigNumberText = new JTextField(20);
-	       pagibigNumberText.setBounds(180, 240, 165, 25);
-	       panel.add(pagibigNumberText);
-	       
-	       tinNumberLabel = new JLabel("tinNumber:");
-	       tinNumberLabel.setBounds(100, 280, 80, 25);
-	       panel.add(tinNumberLabel);
-	       
-	       tinNumberText = new JTextField(20);
-	       tinNumberText.setBounds(180, 280, 165, 25);
-	       panel.add(tinNumberText);
-	       
-	       payrollLabel = new JLabel("PAYROLL:");
-	       payrollLabel.setBounds(20, 350, 80, 25);
-	       panel.add(payrollLabel); 
-	       
-	       timeInLabel = new JLabel("Time In:");
-	       timeInLabel.setBounds(40, 380, 80, 25);
-	       panel.add(timeInLabel);
-	       
-	       timeInText = new JTextField(20);
-	       timeInText.setBounds(130, 380, 165, 25);
-	       panel.add(timeInText);
-	       
-	       timeOutLabel = new JLabel("Time Out:");
-	       timeOutLabel.setBounds(40, 410, 80, 25);
-	       panel.add(timeOutLabel);
-	       
-	       timeOutText = new JTextField(20);
-	       timeOutText.setBounds(130, 410, 165, 25);
-	       panel.add(timeOutText);
-	       
-	       workingHoursLabel = new JLabel("Working Hours:");
-	       workingHoursLabel.setBounds(40, 440, 80, 25);
-	       panel.add(workingHoursLabel);
-	       
-	       workingHoursText = new JTextField(20);
-	       workingHoursText.setBounds(130, 440, 165, 25);
-	       panel.add(workingHoursText);
-	       
-	       weeklySalaryLabel = new JLabel("Weekly Salary:");
-	       weeklySalaryLabel.setBounds(40, 470, 80, 25);
-	       panel.add(weeklySalaryLabel);
-	       
-	       weeklySalaryText = new JTextField(20);
-	       weeklySalaryText.setBounds(130, 470, 165, 25);
-	       panel.add(weeklySalaryText);
-	       
-	       basicSalaryLabel = new JLabel("Basic Salary:");
-	       basicSalaryLabel.setBounds(40, 500, 80, 25);
-	       panel.add(basicSalaryLabel);
-	       
-	       basicSalaryText = new JTextField(20);
-	       basicSalaryText.setBounds(130, 500, 165, 25);
-	       panel.add(basicSalaryText);
-	       
-	       sssLabel = new JLabel("SSS:");
-	       sssLabel.setBounds(40, 530, 80, 25);
-	       panel.add(sssLabel);
-	       
-	       sssText = new JTextField(20);
-	       sssText.setBounds(130, 530, 165, 25);
-	       panel.add(sssText);
-	       
-	       philhealthLabel = new JLabel("Philhealth:");
-	       philhealthLabel.setBounds(40, 560, 80, 25);
-	       panel.add(philhealthLabel);
-	       
-	       philhealthText = new JTextField(20);
-	       philhealthText.setBounds(130, 560, 165, 25);
-	       panel.add(philhealthText);
-	       
-	       pagibigLabel = new JLabel("Pag ibig:");
-	       pagibigLabel.setBounds(350, 380, 80, 25);
-	       panel.add(pagibigLabel);
-	       
-	       pagibigText = new JTextField(20);
-	       pagibigText.setBounds(450, 380, 165, 25);
-	       panel.add(pagibigText);
-	       
-	       tinLabel = new JLabel("TIN:");
-	       tinLabel.setBounds(350, 410, 80, 25);
-	       panel.add(tinLabel);
-	       
-	       tinText = new JTextField(20);
-	       tinText.setBounds(450, 410, 165, 25);
-	       panel.add(tinText);
-	       
-	       taxIncomeLabel = new JLabel("Tax Income:");
-	       taxIncomeLabel.setBounds(350, 440, 80, 25);
-	       panel.add(taxIncomeLabel);
-	       
-	       taxIncomeText = new JTextField(20);
-	       taxIncomeText.setBounds(450, 440, 165, 25);
-	       panel.add(taxIncomeText);
-	       
-	       witHoldingTaxLabel = new JLabel("Witholding Tax:");
-	       witHoldingTaxLabel.setBounds(350, 470, 80, 25);
-	       panel.add(witHoldingTaxLabel);
-	       
-	       witHoldingTaxText = new JTextField(20);
-	       witHoldingTaxText.setBounds(450, 470, 165, 25);
-	       panel.add(witHoldingTaxText);
-	       
-	       netSalaryLabel = new JLabel("Net Salary:");
-	       netSalaryLabel.setBounds(350, 500, 80, 25);
-	       panel.add(netSalaryLabel);
-	       
-	       netSalaryText = new JTextField(20);
-	       netSalaryText.setBounds(450, 500, 165, 25);
-	       panel.add(netSalaryText);
-	}
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        JLabel userLabel = new JLabel("Employee Name");
+        userLabel.setBounds(50, 40, 120, 25);
+        panel.add(userLabel);
 
+        JTextField employeeName = new JTextField(20);
+        employeeName.setBounds(170, 40, 195, 25);
+        panel.add(employeeName);
+
+        JLabel lblESalary = new JLabel("Enter your Salary");
+        lblESalary.setBounds(50, 80, 120, 25);
+        panel.add(lblESalary);
+
+        JTextField txtESalary = new JTextField();
+        txtESalary.setBounds(170, 80, 195, 25);
+        panel.add(txtESalary);
+
+        JLabel lblTax = new JLabel("Tax");
+        lblTax.setBounds(50, 120, 120, 25);
+        panel.add(lblTax);
+
+        JTextField txtTax = new JTextField();
+        txtTax.setBounds(170, 120, 195, 25);
+        panel.add(txtTax);
+
+        JLabel lblNet = new JLabel("Net");
+        lblNet.setBounds(50, 160, 120, 25);
+        panel.add(lblNet);
+
+        JTextField txtNet = new JTextField();
+        txtNet.setBounds(170, 160, 195, 25);
+        panel.add(txtNet);
+
+        JButton btnCalculate = new JButton("Calculate");
+        btnCalculate.setBounds(390, 80, 120, 25);
+        panel.add(btnCalculate);
+
+        JLabel lblPhilHealth = new JLabel("PhilHealth Contribution:");
+        lblPhilHealth.setBounds(50, 200, 150, 25);
+        panel.add(lblPhilHealth);
+
+        JTextField txtPhilHealth = new JTextField();
+        txtPhilHealth.setBounds(210, 200, 155, 25);
+        txtPhilHealth.setEditable(false);
+        panel.add(txtPhilHealth);
+
+        JLabel lblSSS = new JLabel("SSS Contribution:");
+        lblSSS.setBounds(50, 240, 150, 25);
+        panel.add(lblSSS);
+
+        JTextField txtSSS = new JTextField();
+        txtSSS.setBounds(210, 240, 155, 25);
+        txtSSS.setEditable(false);
+        panel.add(txtSSS);
+
+        JLabel lblPagIbig = new JLabel("Pag-Ibig Contribution:");
+        lblPagIbig.setBounds(50, 280, 150, 25);
+        panel.add(lblPagIbig);
+
+        JTextField txtPagIbig = new JTextField();
+        txtPagIbig.setBounds(210, 280, 155, 25);
+        txtPagIbig.setEditable(false);
+        panel.add(txtPagIbig);
+
+        btnCalculate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                double basicSalary = Double.parseDouble(txtESalary.getText());
+                double philhealth = philhealth(basicSalary);
+                double sss = sss(basicSalary);
+                double pagibig = pagibig(basicSalary);
+                double deductions = sss + philhealth + pagibig;
+                double taxableIncome = basicSalary - deductions;
+                double tax = tax(taxableIncome);
+                double net = basicSalary - tax - deductions;
+                txtPhilHealth.setText(String.format("%.2f", philhealth));
+                txtNet.setText(String.format("%.2f", net));
+
+                // SSS calculation
+                if (basicSalary > 24750) {
+                    sss = 1125;
+                } else if (basicSalary >= 24250 && basicSalary <= 24750) {
+                    sss = 1102.50;
+                } else if (basicSalary >= 23750 && basicSalary <= 24250) {
+                    sss = 1080.00;
+                } else if (basicSalary >= 23250 && basicSalary <= 23750) {
+                    sss = 1057.50;
+                } else if (basicSalary >= 22750 && basicSalary <= 23250) {
+                    sss = 1035.00;
+                } else if (basicSalary >= 22250 && basicSalary <= 22750) {
+                    sss = 1012.50;
+                } else if (basicSalary >= 21750 && basicSalary <= 22250) {
+                    sss = 990.00;
+                } else if (basicSalary >= 21250 && basicSalary <= 21750) {
+                    sss = 967.50;
+                } else if (basicSalary >= 20750 && basicSalary <= 21250) {
+                    sss = 945.00;
+                } else if (basicSalary >= 20250 && basicSalary <= 20750) {
+                    sss = 922.50;
+                } else if (basicSalary >= 19750 && basicSalary <= 20250) {
+                    sss = 900.00;
+                }
+                txtSSS.setText(String.format("%.2f", sss));
+
+                // PhilHealth Calculation
+                txtPhilHealth.setText(String.format("%.2f", philhealth));
+
+                // Pag-Ibig calculation
+                double pagIbig = 0;
+                if (basicSalary == 1000 && basicSalary <= 1500) {
+                    pagIbig = basicSalary * 0.01;
+                } else if (basicSalary > 1500) {
+                    pagIbig = basicSalary * 0.02;
+                }
+
+                if (pagIbig > 100) {
+                    pagIbig = 100;
+                }
+
+
+
+                if(basicSalary > 3250 && basicSalary <= 3750)
+                {
+                    tax = basicSalary * 0.05;
+                } else if (basicSalary > 3750 && basicSalary <= 4250)
+                {
+                    tax = basicSalary * 0.06;
+                } else if (basicSalary > 4250 && basicSalary <= 4750)
+                {
+                    tax = basicSalary * 0.07;
+                } else if (basicSalary > 4750 && basicSalary <= 5250)
+                {
+                    tax = basicSalary * 0.08;
+                } else if (basicSalary > 5250 && basicSalary <= 5750)
+                {
+                    tax = basicSalary * 0.09;
+                } else if (basicSalary > 5750 && basicSalary <= 6250)
+                {
+                    tax = basicSalary * 0.10;
+                } else if (basicSalary > 6250 && basicSalary <= 6750)
+                {
+                    tax = basicSalary * 0.11;
+                } else if (basicSalary > 6750)
+                {
+                    tax = basicSalary * 0.12;
+                }
+
+                txtTax.setText(String.format("%.2f", tax));
+                net = basicSalary - tax;
+                txtNet.setText(String.format("%.2f", net));
+            }
+        });
+
+        frame.add(panel);
+        frame.setVisible(true);
+    }
+
+    private static double sss(double basicSalary) {
+        if (basicSalary > 24750) {
+            return 1125;
+        } else if (basicSalary >= 24250 && basicSalary <= 24750) {
+            return 1102.50;
+        } else if (basicSalary >= 23750 && basicSalary <= 24250) {
+            return 1080.00;
+        } else if (basicSalary >= 23250 && basicSalary <= 23750) {
+            return 1057.50;
+        } else if (basicSalary >= 22750 && basicSalary <= 23250) {
+            return 1035.00;
+        } else if (basicSalary >= 22250 && basicSalary <= 22750) {
+            return 1012.50;
+        } else if (basicSalary >= 21750 && basicSalary <= 22250) {
+            return 990.00;
+        } else if (basicSalary >= 21250 && basicSalary <= 21750) {
+            return 967.50;
+        } else if (basicSalary >= 20750 && basicSalary <= 21250) {
+            return 945.00;
+        } else if (basicSalary >= 20250 && basicSalary <= 20750) {
+            return 922.50;
+        } else if (basicSalary >= 19750 && basicSalary <= 20250) {
+            return 900.00;
+        } else {
+            return 0.0;
+        }
+    }
+
+
+    private static double pagibig(double salary) {
+        if (salary >= 1000 && salary <= 1500) {
+            return salary * 0.01;
+        } else if (salary > 1500) {
+            double pagibig = salary * 0.02;
+            if (pagibig > 100) {
+                pagibig = 100;
+            }
+            return pagibig;
+        } else {
+            return 0.0;
+        }
+    }
+
+    private static double tax(double taxableIncome) {
+        if(taxableIncome > 0 && taxableIncome <= 250000) {
+            return 0.0;
+        } else if(taxableIncome > 250000 && taxableIncome <= 400000) {
+            return (taxableIncome - 250000) * 0.2;
+        } else if(taxableIncome > 400000 && taxableIncome <= 800000) {
+            return 30000 + (taxableIncome - 400000) * 0.25;
+        } else if(taxableIncome > 800000 && taxableIncome <= 2000000) {
+            return 130000 + (taxableIncome - 800000) * 0.3;
+        } else if(taxableIncome > 2000000 && taxableIncome <= 8000000) {
+            return 490000 + (taxableIncome - 2000000) * 0.32;
+        } else if(taxableIncome > 8000000) {
+            return 2410000 + (taxableIncome - 8000000) * 0.35;
+        } else {
+            return 0.0;
+        }
+    }
+
+    private static double philhealth(double salary) {
+        return (salary * 0.03) / 2;
+    }
 }
