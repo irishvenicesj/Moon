@@ -1,0 +1,189 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class LeaveApplicationGUI extends JFrame {
+   private String employeeName;
+   private JComboBox<String> leaveType;
+   private JTextField startDate;
+   private JTextField endDate;
+
+
+
+
+   public LeaveApplicationGUI() {
+       // Set the window properties
+       setTitle("Employee Leave Application");
+       setSize(400, 250);
+       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+       // Create the form panel
+       JPanel formPanel = new JPanel();
+       formPanel.setLayout(new GridLayout(5, 2));
+
+
+       // Add the form fields
+       JLabel nameLabel = new JLabel(" Name: ");
+       JTextField nameField = new JTextField();
+       JLabel employeeNumberLabel = new JLabel(" Employee Number: ");
+       JTextField employeeNumberField = new JTextField();
+       JLabel startDateLabel = new JLabel(" Start date: ");
+       JTextField startDateField = new JTextField();
+       JLabel endDateLabel = new JLabel(" End date: ");
+       JTextField endDateField = new JTextField();
+       JLabel leaveTypeLabel = new JLabel(" Leave Type: ");
+       String[] leaveTypes = { " Vacation ", " Sick ", " Emergency "};
+       JComboBox<String> leaveTypeComboBox = new JComboBox<>(leaveTypes);
+       formPanel.add(nameLabel);
+       formPanel.add(nameField);
+       formPanel.add(employeeNumberLabel);
+       formPanel.add(employeeNumberField);
+       formPanel.add(startDateLabel);
+       formPanel.add(startDateField);
+       formPanel.add(endDateLabel);
+       formPanel.add(endDateField);
+       formPanel.add(leaveTypeLabel);
+       formPanel.add(leaveTypeComboBox);
+
+
+       // Add the submit button
+       JButton submitButton = new JButton(" Submit ");
+       submitButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               // Retrieve the values from the form fields
+               String name = nameField.getText();
+               String employeeNumber = employeeNumberField.getText();
+               String startDate = startDateField.getText();
+               String endDate = endDateField.getText();
+               String leaveType = (String) leaveTypeComboBox.getSelectedItem();
+
+
+
+
+               String employeeName = null;
+               EmployeeLeaveApplication.Employee employee = new EmployeeLeaveApplication.Employee(employeeName);
+               employee.takeLeave(leaveType);
+
+
+
+
+               // Create an employee leave application object and submit it
+               EmployeeLeaveApplication leaveApplication = new EmployeeLeaveApplication(name, employeeNumber, startDate, endDate, leaveTypes);
+               leaveApplication.submit();
+
+
+               // Display a confirmation message
+               JOptionPane.showMessageDialog(null, "Your Leave Application has been submitted successfully with the following details:" +
+                       "\n\nEmployee Name: " + name
+                       + "\nEmployee Number: " + employeeNumber
+                       + "\nStart Date: "+ startDate
+                       + "\nEnd Date: "+ endDate
+                       + "\nLeave Type: " + leaveType
+                       + "\nRemaining Sick Leave: " + employee.getSickLeaveEntitlement()
+                       + "\nRemaining Vacation Leave: " + employee.getVacationLeaveEntitlement()
+                       + "\nRemaining Emergency Leave: " + employee.getEmergencyLeaveEntitlement()
+                       + "\n\nYou will be notified once it has been approved  or denied.\nThank you for using our Employee Leave Application System!");
+           }
+       });
+
+
+       // Add the components to the window
+       add(formPanel, BorderLayout.CENTER);
+       add(submitButton, BorderLayout.SOUTH);
+
+
+       // Display the window
+       setVisible(true);
+   }
+
+
+   public static void main(String[] args) {
+       // Create an instance of the GUI
+       new LeaveApplicationGUI();
+   }
+}
+
+
+class EmployeeLeaveApplication {
+   private String name;
+   private String employeeNumber;
+   private String startDate;
+   private String endDate;
+   private String leaveType;
+
+
+   public EmployeeLeaveApplication(String name, String employeeNumber, String startDate, String endDate, String[] leaveTypes) {
+       this.name = name;
+       this.employeeNumber = employeeNumber;
+       this.startDate = startDate;
+       this.endDate = endDate;
+       this.leaveType = leaveType;
+
+
+   }
+
+
+   public static class Employee {
+       private String name;
+       private String employeeNumber;
+       private int sickLeaveEntitlement = 5;
+       private int vacationLeaveEntitlement = 10;
+       private int emergencyLeaveEntitlement = 5;
+
+
+       public Employee(String name) {
+           this.name = name;
+       }
+       public String getName() {
+           return name;
+       }
+
+
+       public int getSickLeaveEntitlement() {
+           return sickLeaveEntitlement;
+       }
+
+
+       public int getEmergencyLeaveEntitlement() {
+           return emergencyLeaveEntitlement;
+       }
+
+
+       public int getVacationLeaveEntitlement() {
+           return vacationLeaveEntitlement;
+       }
+
+
+       public void takeLeave(String leaveType) {
+           switch (leaveType) {
+               case "Sick":
+                   sickLeaveEntitlement--;
+                   break;
+               case "Vacation":
+                   vacationLeaveEntitlement--;
+                   break;
+               case "Emergency":
+                   emergencyLeaveEntitlement--;
+                   break;
+
+
+           }
+       }
+
+
+   }
+
+
+   public void submit() {
+       // Mock implementation of the submit method
+       System.out.println("Leave application submitted for " + name + " from " + startDate + " to " + endDate);
+   }
+}
+
+
+
+
