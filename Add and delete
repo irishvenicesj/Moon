@@ -1,0 +1,108 @@
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Vector;
+
+public class MotorphEmployeeApp extends JFrame {
+    private JPanel panNorth;
+    private JLabel lblFirstName, lblLastName, lblSSSNo, lblPhilhealthNo, lblTinNo, lblPagibigNo;
+    private JTextField txtFirstName, txtLastName, txtSSSNo, txtPhilhealthNo, txtTinNo, txtPagibigNo;
+    private JTable tabMain;
+	private DefaultTableModel dtm;
+	private JButton btnAdd, btnDelete;
+	
+	public MotorphEmployeeApp() {
+		panNorth = new JPanel();
+		
+		lblFirstName = new JLabel("First Name:");
+		lblLastName = new JLabel("Last Name:");
+		lblSSSNo = new JLabel("SSS No.:");
+		lblPhilhealthNo = new JLabel("Philhealth No.:");
+		lblTinNo = new JLabel("TIN no.:");
+		lblPagibigNo = new JLabel("Pagibig No.:");
+		
+		txtFirstName = new JTextField();
+		txtLastName = new JTextField();
+		txtSSSNo = new JTextField();
+		txtPhilhealthNo = new JTextField();
+		txtTinNo = new JTextField();
+		txtPagibigNo = new JTextField();
+		
+		btnAdd = new JButton("Add");
+		btnDelete = new JButton("Delete");
+		
+		panNorth.setLayout(new GridLayout(4, 2));
+		panNorth.add(lblFirstName);
+		panNorth.add(txtFirstName);
+		panNorth.add(lblLastName);
+		panNorth.add(txtLastName);
+		panNorth.add(lblSSSNo);
+		panNorth.add(txtSSSNo);
+		panNorth.add(lblPhilhealthNo);
+		panNorth.add(txtPhilhealthNo);
+		panNorth.add(lblTinNo);
+		panNorth.add(txtTinNo);
+		panNorth.add(lblPagibigNo);
+		panNorth.add(txtPagibigNo);
+		panNorth.add(btnAdd);
+		panNorth.add(btnDelete);
+		
+		dtm = new DefaultTableModel();
+		tabMain = new JTable(dtm);
+		
+		dtm.addColumn("FirstName");
+		dtm.addColumn("LastName");
+		dtm.addColumn("SSS NO.");
+		dtm.addColumn("Philhealth NO.");
+		dtm.addColumn("Tin NO.");
+		dtm.addColumn("Pagibig NO.");
+		
+		setTitle("MotorPh Employee Details");
+		setSize(400, 300);
+		setLocation(100, 100);
+		add(panNorth, "North");
+		add(new JScrollPane(tabMain), "Center");
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				Vector row = new Vector();
+				row.add(txtFirstName.getText());
+				row.add(txtLastName.getText());
+				row.add(txtSSSNo.getText());
+				row.add(txtPhilhealthNo.getText());
+				row.add(txtTinNo.getText());
+				row.add(txtPagibigNo.getText());
+				dtm.addRow(row);
+				txtFirstName.setText("");
+				txtLastName.setText("");
+				txtSSSNo.setText("");
+				txtPhilhealthNo.setText("");
+				txtTinNo.setText("");
+				txtPagibigNo.setText("");
+				txtFirstName.requestFocus();
+				txtLastName.requestFocus();
+			}
+		});
+		
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				int i = tabMain.getSelectedRow();
+				if(i!= -1) {
+					dtm.removeRow(i);
+				}
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		new MotorphEmployeeApp();
+
+	}
+
+}
+
+
